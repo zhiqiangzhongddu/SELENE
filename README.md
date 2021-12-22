@@ -20,5 +20,5 @@ All eight datasets we used in the paper are all public datasets which can be dow
 
 ### Code execution
 ```
-python main.py --data_name! Texas --layer_num 2 --epoch_num 501 --lr 0.01 --p_x 0.2 --p_e 0.3 --gnn_encoder GCN --feat_method rw --SEED 1234 --gpu True
+python main.py --data_name Texas --layer_num 2 --epoch_num 501 --lr 0.01 --p_x 0.2 --p_e 0.3 --gnn_encoder GCN --feat_method rw --SEED 1234 --gpu True
 ```
