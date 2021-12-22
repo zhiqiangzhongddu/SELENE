@@ -40,10 +40,6 @@ def cluster_eval(y_true, y_pred):
     l2 = list(set(y_pred))
     numclass2 = len(l2)
 
-    # if numclass1 != numclass2:
-    #     print('error')
-    #     return
-
     cost = np.zeros((numclass1, numclass2), dtype=int)
     for i, c1 in enumerate(l1):
         mps = [i1 for i1, e1 in enumerate(y_true) if e1 == c1]
@@ -134,7 +130,7 @@ def svm_test(data, embeddings, labels, train_ratios=(10, 20, 30, 40), repeat=10)
 
 def evaluate_results_nc(
         data, embeddings, quiet=False, method='unsup',
-        alpha: float = 0.0, beta: float = 0.0,
+        alpha: float = 2.0, beta: float = 2.0,
 ):
     labels = data.y.detach().cpu().numpy()
     num_classes = data.num_classes
@@ -181,4 +177,3 @@ def evaluate_results_nc(
         svm_macro_f1_list = svm_micro_f1_list = [(0, 0), (0, 0), (0, 0), (0, 0)]
 
     return svm_macro_f1_list, svm_micro_f1_list, acc_mean, acc_std, nmi_mean, nmi_std, ari_mean, ari_std, f1_mean, f1_std
-

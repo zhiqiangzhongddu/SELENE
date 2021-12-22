@@ -160,15 +160,6 @@ if model._opt_bt_g:
     print(model._gnn_encoder)
 
 
-# In[ ]:
-
-
-
-
-
-# In[12]:
-
-
 for epoch in range(args.total_epochs):
     loss = x_loss = g_loss = r_loss = 0
     for sub_data in data_loader:
@@ -187,42 +178,13 @@ for epoch in range(args.total_epochs):
 embeddings, embeddings_x, embeddings_g = model.get_valid_embeddings(data_loader)
 
 
-# In[ ]:
-
-
-
-
-
-# In[13]:
-
-
 records = []
 print('is evaluating model...')
-records_temp = []
-for alpha in range(12):
-    alpha = alpha / 10
-    beta = 1 - alpha
-    svm_macro_f1_list, svm_micro_f1_list, acc_mean, acc_std, nmi_mean, nmi_std, ari_mean, ari_std, f1_mean, f1_std = evaluate_results_nc(
-        data=data, embeddings=embeddings,
-        alpha=alpha, beta=beta,
-    )
-    records_temp.append((
-        acc_mean, acc_std, nmi_mean, nmi_std, ari_mean, ari_std, f1_mean, f1_std, alpha, beta,
-    ))
-best_idx = np.argmax([item[0] for item in records_temp])
-print(f'\nbest alpha/beta group id: {best_idx}')
-print(records_temp[best_idx])
-records.append(records_temp[best_idx])
+svm_macro_f1_list, svm_micro_f1_list, acc_mean, acc_std, nmi_mean, nmi_std, ari_mean, ari_std, f1_mean, f1_std = evaluate_results_nc(
+    data=data, embeddings=embeddings,
+)
+records.append((acc_mean, acc_std, nmi_mean, nmi_std, ari_mean, ari_std, f1_mean, f1_std))
 print('model evaluation is done.')
-
-
-# In[ ]:
-
-
-
-
-
-# In[14]:
 
 
 if embeddings_x is not None:
@@ -246,31 +208,9 @@ else:
     records.append((0, 0, 0, 0, 0, 0, 0, 0))
 
 
-# In[ ]:
-
-
-
-
-
-# In[15]:
-
-
 # save LOG and generated emveddings
 args.execution_time = time.time() - start
 print(f'execution time: {args.execution_time}')
 save_LOG(
     args=args, records=records, emb=embeddings
 )
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
