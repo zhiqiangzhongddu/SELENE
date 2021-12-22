@@ -1,0 +1,4 @@
+# Byte-compiled / optimized / DLL files
+
+code/.ipynb_checkpoints
+*.pyc
