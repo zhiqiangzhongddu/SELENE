@@ -22,3 +22,16 @@ All eight datasets we used in the paper are all public datasets which can be dow
 ```
 python main.py --data_name Texas --layer_num 2 --epoch_num 501 --lr 0.01 --p_x 0.2 --p_e 0.3 --gnn_encoder GCN --feat_method rw --SEED 1234 --gpu True
 ```
+
+## Cite
+
+Please cite our paper if it is helpful in your own work:
+
+```
+@article{ZGGP22,
+title = {Unsupervised Network Embedding Beyond Homophily},
+author = {Zhiqiang Zhong and Guadalupe Gonzalez and Daniele Grattarola and Jun Pang},
+journal = {Transactions on Machine Learning Research (TMLR)},
+year = {2022},
+}
+```
