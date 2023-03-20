@@ -27,7 +27,7 @@ python main.py --data_name Texas --layer_num 2 --epoch_num 501 --lr 0.01 --p_x 0
 
 Please cite our paper if it is helpful in your own work:
 
-```
+```bibtex
 @article{ZGGP22,
 title = {Unsupervised Network Embedding Beyond Homophily},
 author = {Zhiqiang Zhong and Guadalupe Gonzalez and Daniele Grattarola and Jun Pang},
