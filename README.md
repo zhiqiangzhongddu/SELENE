@@ -1,4 +1,6 @@
-# Unsupervised Heterophilous Network Embedding via r-Ego Network Discrimination
+# Unsupervised Network Embedding Beyond Homophily
+
+(also named as: Unsupervised Heterophilous Network Embedding via r-Ego Network Discrimination)
 
 Implementation of Selene with Pytorch.
 
